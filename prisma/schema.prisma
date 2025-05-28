@@ -5,8 +5,9 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../lib/generated/prisma"
+  provider        = "prisma-client-js"
+  output          = "../lib/generated/prisma"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -20,7 +21,7 @@ model Product {
   slug        String   @unique(map: "product_slug_idx")
   category    String
   images      String[]
-  description String?
+  description String
   brand       String
   stock       Int
   price       Decimal  @default(0) @db.Decimal(12, 2)
